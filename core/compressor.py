@@ -120,11 +120,15 @@ def compress_video(input_path, output_path, mode="notebooklm"):
         cmd,
         stdout=subprocess.PIPE,
         stderr=subprocess.PIPE,
-        text=True,
+        text=False,            # 改成二進位模式
     )
 
-    print("[compress_video] ffmpeg stdout:", result.stdout)
-    print("[compress_video] ffmpeg stderr:", result.stderr)
+    # 以 UTF-8 嘗試解碼，遇到不支援的字節就忽略
+    stdout_text = result.stdout.decode("utf-8", errors="ignore") if result.stdout else ""
+    stderr_text = result.stderr.decode("utf-8", errors="ignore") if result.stderr else ""
+
+    print("[compress_video] ffmpeg stdout:", stdout_text)
+    print("[compress_video] ffmpeg stderr:", stderr_text)
 
     if result.returncode != 0:
         raise RuntimeError(f"ffmpeg 執行失敗，returncode={result.returncode}")

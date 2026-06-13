@@ -27,21 +27,34 @@ class App:
         tk.Entry(root, textvariable=self.url_var, width=80).pack()
 
         tk.Label(root, text="Save Folder:").pack()
-        tk.Entry(root, textvariable=self.path_var, width=80).pack()
-        tk.Button(root, text="Select Folder", command=self.select_folder).pack()
 
+        save_frame = tk.Frame(root)
+        save_frame.pack()
+
+        tk.Entry(save_frame, textvariable=self.path_var, width=60).pack(
+            side="left", padx=5
+        )
+
+        tk.Button(
+            save_frame,
+            text="Select Folder",
+            command=self.select_folder,
+        ).pack(side="left")
+        
         # ===== 本機影片檔選擇 =====
         tk.Label(root, text="或選擇本機影片檔（mp4）：").pack()
         frame_local = tk.Frame(root)
-        frame_local.pack(fill="x")
-        tk.Entry(frame_local, textvariable=self.local_video_path, width=60).pack(
-            side="left", padx=5
-        )
-        tk.Button(
+        frame_local.pack()
+
+        entry = tk.Entry(frame_local, textvariable=self.local_video_path, width=60)
+        entry.pack(side="left", padx=5)
+
+        btn = tk.Button(
             frame_local,
             text="Browse Video",
             command=self.select_local_video,
-        ).pack(side="left")
+        )
+        btn.pack(side="left")
 
         # ===== 壓縮選項區 =====
         self.enable_compress = tk.BooleanVar(value=True)
