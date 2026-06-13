@@ -16,12 +16,19 @@ CUDA 加速
 適合 NotebookLM 上傳
 
 一鍵打包 EXE
+python -m venv .venv 
+.venv\Scripts\activate
+python.exe -m pip install --upgrade pip
 
 進入資料夾後執行：
 
 pip install -r requirements.txt
 
-再執行：
+本機測試:
+
+python .\main.py
+
+打包執行檔 main.exe：
 
 pyinstaller --onefile --windowed main.py
 

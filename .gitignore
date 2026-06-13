@@ -1,0 +1,16 @@
+# Virtual environment
+.venv/
+venv/
+
+# Python cache
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+
+# VS Code settings (可選)
+.vscode/
+
+# 其他暫存檔（可選）
+*.log
+*.tmp
