@@ -23,7 +23,7 @@ def transcribe_video(video_path: str) -> str:
         video_path,
         language="zh",
         beam_size=5,        # 可調，越大越精確但越慢
-        vad_filter=True,    # 啟用 VAD，略過靜音段落
+        vad_filter=False, 
     )
 
     txt_path = video_path + ".txt"

@@ -14,3 +14,8 @@ __pycache__/
 # 其他暫存檔（可選）
 *.log
 *.tmp
+
+# PyInstaller build output
+/build/
+/dist/
+*.spec

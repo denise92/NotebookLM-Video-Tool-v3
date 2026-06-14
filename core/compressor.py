@@ -129,6 +129,6 @@ def compress_video(input_path, output_path, mode="notebooklm"):
 
     print("[compress_video] ffmpeg stdout:", stdout_text)
     print("[compress_video] ffmpeg stderr:", stderr_text)
-
+    
     if result.returncode != 0:
         raise RuntimeError(f"ffmpeg 執行失敗，returncode={result.returncode}")
